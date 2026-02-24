@@ -1,5 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<workshop.Models.StudentModel>
+
 @{
+    ViewData["Title"] = "Student List";
 }
+
+<div class="container mt-4">
+
+    <h3 class="mb-3">Student Records</h3>
+
+    <table class="table table-bordered table-striped table-hover shadow">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.student_id</td>
+                        <td>@item.studentname</td>
+                        <td>@item.studentbranch</td>
+                        <td>@item.student_email</td>
+                        <td>@item.DOB</td>
+                        <td>@item.city</td>
+
+                        <td>
+                            <a asp-action="Edit" 
+                               asp-route-id="@item.student_id"
+                               class="btn btn-sm btn-warning">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.student_id"
+                               class="btn btn-sm btn-danger">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center text-muted">
+                        No students found.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
