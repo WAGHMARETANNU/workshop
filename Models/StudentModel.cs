@@ -4,6 +4,7 @@ namespace workshop.Models
     {
     public class StudentModel
         {
+        [Key]
         public int student_id { get; set; }
 
         [Required(ErrorMessage ="enter the name ")]//validation with data annotation
