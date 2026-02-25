@@ -61,7 +61,7 @@ namespace workshop.Controllers
                 db.students.Update(s);
                 db.SaveChanges();
                 //return RedirectToAction("Index");
-                return RedirectToAction("Edit", new { id = s.student_id });
+                return RedirectToAction("Create", new { id = s.student_id });
                 }
 
             return View(s);
