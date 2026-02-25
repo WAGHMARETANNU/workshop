@@ -80,8 +80,8 @@ namespace workshop.Controllers
             return View(student);
             }
 
-        // POST: Student/DeleteConfirmed/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Student/Delete/5
+[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
             {
@@ -93,7 +93,7 @@ namespace workshop.Controllers
                 db.SaveChanges();
                 }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
             }
         }
     }
